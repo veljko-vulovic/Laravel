@@ -6,6 +6,11 @@ use App\Models\Roles;
 
 class RolesController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index(Roles $roles)
     {
         return view('role.index', ['roles' => Roles::all()]);
